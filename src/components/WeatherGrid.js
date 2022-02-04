@@ -74,7 +74,7 @@ export const WeatherGrid = ({ category }) => {
         }
         
     }
-    return <div className='row tarjeta '>
+    return <div className='row tarjeta animate__animated animate__slideInDown'>
         <div className='row'>
             <div className='col-8 '>
                 <h3 className='cabeceraTarjeta tituloTarjeta' >{weather.name} ({weather.pais}) </h3>
@@ -93,12 +93,12 @@ export const WeatherGrid = ({ category }) => {
 
             <div className='col-6 container'>
                 <ul className='list-group '>
-                    <li className='list-group-item listaTiempo'><span className='resaltado'>Situación actual:</span> {weather.Descr}</li>
-                    <li className='list-group-item listaTiempo'><span className='resaltado'>Temperatura:</span> {weather.temp}° ({weather.tmin}° min / {weather.tmax}° max)</li>
-                    <li className='list-group-item listaTiempo'><span className='resaltado'>Sensación Térmica:</span> {weather.sensacionTermica}°</li>
-                    <li className='list-group-item listaTiempo'><span className='resaltado'>Nubes:</span> {weather.clouds}%</li>
-                    <li className='list-group-item listaTiempo'><span className='resaltado'>Humedad:</span> {weather.humidity}%</li>
-                    <li className='list-group-item listaTiempo'><span className='resaltado'>Viento:</span> {weather.wind} m/s</li>
+                    <li className='list-group-item listaTiempo animate__animated animate__fadeInLeft animate__delay-1s'><span className='resaltado'>Situación actual:</span> {weather.Descr}</li>
+                    <li className='list-group-item listaTiempo animate__animated animate__fadeInLeft animate__delay-1s'><span className='resaltado'>Temperatura:</span> {weather.temp}° ({weather.tmin}° min / {weather.tmax}° max)</li>
+                    <li className='list-group-item listaTiempo animate__animated animate__fadeInLeft animate__delay-1s'><span className='resaltado'>Sensación Térmica:</span> {weather.sensacionTermica}°</li>
+                    <li className='list-group-item listaTiempo animate__animated animate__fadeInLeft animate__delay-1s'><span className='resaltado'>Nubes:</span> {weather.clouds}%</li>
+                    <li className='list-group-item listaTiempo animate__animated animate__fadeInLeft animate__delay-1s'><span className='resaltado'>Humedad:</span> {weather.humidity}%</li>
+                    <li className='list-group-item listaTiempo animate__animated animate__fadeInLeft animate__delay-1s'><span className='resaltado'>Viento:</span> {weather.wind} m/s</li>
 
                 </ul>
             </div>
