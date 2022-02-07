@@ -24,21 +24,7 @@ export const WeatherGrid = ({ category }) => {
         const resp = await fetch(url);
         if (!resp.ok) {
             setExiste(false);
-
-            setWeather({name: 'CIUDAD NO ENCONTRADA',
-                temp: 'N',
-                tmax: 'N',
-                tmin: 'N',
-                lat: 'N',
-                lon: 'N',
-                humidity:'N',
-                clouds: 'N',
-                Descr: 'N',
-                wind: 'N',
-                pais : 'N',
-                icono: '',
-                sensacionTermica: 'N',});
-            
+           
         }else{
             setExiste(true);
             const data = await resp.json();
