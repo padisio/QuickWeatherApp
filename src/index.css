@@ -69,3 +69,7 @@ h1{color: white;}
 .errorCiudad{
   border: 1px solid red;
 }
+.iconoSvg{
+  fill: white;
+  padding: 5px;
+}
