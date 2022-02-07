@@ -4,11 +4,10 @@ import { MapView } from './MapView';
 export const WeatherGrid = ({ category }) => {
 
     const [weather, setWeather] = useState({});
+    
     const [Mapa, setMapa] = useState('');
-    const [cargando, setCargando] = useState({
-        loading:true,
-        existeFicha:true,
-    });
+
+    const [existe, setExiste] = useState(true);
 
     useEffect(() => {
         getTime();
@@ -24,6 +23,7 @@ export const WeatherGrid = ({ category }) => {
 
         const resp = await fetch(url);
         if (!resp.ok) {
+            setExiste(false);
 
             setWeather({name: 'CIUDAD NO ENCONTRADA',
                 temp: 'N',
@@ -40,6 +40,7 @@ export const WeatherGrid = ({ category }) => {
                 sensacionTermica: 'N',});
             
         }else{
+            setExiste(true);
             const data = await resp.json();
 
             console.log(data);
@@ -80,7 +81,9 @@ export const WeatherGrid = ({ category }) => {
         }
         
     }
-    return <div className='row tarjeta animate__animated animate__slideInDown'>
+    if(existe){
+        return <div className='row tarjeta animate__animated animate__slideInDown'>
+
         <div className='row'>
             <div className='col-8 '>
                 <h3 className='cabeceraTarjeta tituloTarjeta' >{weather.name} ({weather.pais}) </h3>
@@ -115,11 +118,12 @@ export const WeatherGrid = ({ category }) => {
 
         </div>
 
-        {/* <p>En {weather.name} la situacion actual es de: {weather.clima} ({weather.Descr}) con un {weather.clouds}% de nubes</p>
-    <p>Hace {weather.temp}° (minimas de {weather.tmin}° y maximas de {weather.tmax}°)</p>
-    <p>La sensacion termica es de {weather.sensacionTermica}° con un {weather.humidity}% de humedad</p>
-    <p>La velocidad del viento es de {weather.wind} m/s</p>
-  */}
     </div>;
 
-};
+}else{
+    return <div className='row tarjeta animate__animated animate__slideInDown errorCiudad'>
+             <h3 className='cabeceraTarjeta tituloTarjeta' >Ciudad no encontrada: ({category})</h3>
+        </div>
+}
+    }
+
