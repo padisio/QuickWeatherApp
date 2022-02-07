@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapView } from './MapView';
 
-export const WeatherGrid = ({ category }) => {
+export const WeatherGrid = ({ category}) => {
 
     const [weather, setWeather] = useState({});
     
@@ -9,6 +9,7 @@ export const WeatherGrid = ({ category }) => {
 
     const [existe, setExiste] = useState(true);
 
+ 
     useEffect(() => {
         getTime();
     }, [])
@@ -64,6 +65,7 @@ export const WeatherGrid = ({ category }) => {
             }
             console.log(resultado);
             setWeather(resultado);
+           
         }
         
     }

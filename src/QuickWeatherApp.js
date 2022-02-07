@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { AddLocation } from './components/AddLocation';
 import { WeatherGrid } from './components/WeatherGrid';
-
 const QuickWeatherApp = () => {
     
+    // const [id, setId] = useState(1);
     const [categories, setCategories] = useState([]);
     
     // const handleAdd = () =>{
@@ -18,7 +18,9 @@ const QuickWeatherApp = () => {
          <ol>
              {
              categories.map(category =>  <WeatherGrid key={category} category={category}/>)
+               
              }
+         
          </ol>
      </>;
  };
