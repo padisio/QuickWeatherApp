@@ -5,6 +5,10 @@ export const WeatherGrid = ({ category }) => {
 
     const [weather, setWeather] = useState({});
     const [Mapa, setMapa] = useState('');
+    const [cargando, setCargando] = useState({
+        loading:true,
+        existeFicha:true,
+    });
 
     useEffect(() => {
         getTime();
@@ -12,9 +16,11 @@ export const WeatherGrid = ({ category }) => {
 
     const getTime = async () => {
         
-        const apiKey = 'cfb0c6e0588118cb657e52f0835a331e';
+        const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+        console.log(process.env.REACT_APP_WEATHER_API_KEY);
 
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${category}&lang=ES&appid=${apiKey}`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${category}&lang=ES&appid=${API_KEY}`
+      
 
         const resp = await fetch(url);
         if (!resp.ok) {
